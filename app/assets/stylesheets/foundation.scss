@@ -1,0 +1,7 @@
+@for $i from 1 through 50 {
+  $base: 10;
+  $width: $base * $i;
+  .w-#{$width}px {
+    width: #{$width}px;
+  }
+}
