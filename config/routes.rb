@@ -27,6 +27,11 @@ Rails.application.routes.draw do
     resources :quizs, only: [:index, :show] do
       resources :responses, only: [:index, :show]
     end
+    scope module: :categories do
+      resources :categories, param: :slug, only: [] do
+        resources :quizs, only: [:index]
+      end
+    end
     resources :users, only: :show
   end
 

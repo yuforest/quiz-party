@@ -1,0 +1,31 @@
+<%= form_with model: [:user, @quiz], local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category %>
+    <%= f.collection_select :category,
+                            Category.all,
+                            :id,
+                            :name,
+                            { selected: @quiz.category.id },
+                            { class: 'form-control' }
+    %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="form-group">
+    <%= f.submit '送信', class: 'btn btn-warning' %>
+  </div>
+<% end %>
+
+<% content_for :scripts do %>
+  <script>
+    $(document).ready(function() {
+      $('.select2').select2();
+    });
+  </script>
+<% end %>

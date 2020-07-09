@@ -1,0 +1,35 @@
+<div class="container">
+  <section class="my-4">
+    <div class="d-flex justify-content-between mx-2 mb-2">
+      <h2 class="display-4">自分の投稿一覧</h2>
+      <%= link_to "クイズ作成", new_user_quiz_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-nowrap">クイズ</th>
+            <th class="text-nowrap">カテゴリ</th>
+            <th class="text-nowrap">回答数</th>
+            <th class="text-nowrap">投稿日時</th>
+            <th class="text-nowrap"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @quizs.each do |quiz| %>
+            <tr>
+              <td><%= quiz.content %></td>
+              <td><%= quiz.category.name %></td>
+              <td><%= quiz.responses.count %></td>
+              <td><%= quiz.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+              <td class="td-actions text-nowrap">
+                <%= link_to "編集", edit_user_quiz_path(quiz) , class:"btn btn-success btn-icon btn-sm" %>
+                <%= link_to "削除", user_quiz_path(quiz) , class:"btn btn-danger btn-icon btn-sm", method: :delete, data: {confirm: "削除しますか？"} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

@@ -26,16 +26,15 @@ ActiveRecord::Schema.define(version: 2020_07_04_040257) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "quiz_id", null: false
-    t.bigint "category_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_answers_on_category_id"
     t.index ["quiz_id"], name: "index_answers_on_quiz_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -44,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_07_04_040257) do
     t.bigint "user_id", null: false
     t.text "content"
     t.bigint "category_id", null: false
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_quizzes_on_category_id"
@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 2020_07_04_040257) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "answers", "categories"
   add_foreign_key "answers", "quizzes"
   add_foreign_key "quizzes", "categories"
   add_foreign_key "quizzes", "users"
