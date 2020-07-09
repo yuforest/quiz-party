@@ -1,68 +1,32 @@
 <div class="container">
   <div>
     <h3 class="font-weight-bold">人気クイズ</h3>
-    <div class="quiz-box">
-      <h4 class="font-weight-bold">パンはパンでも食べられないパンってなんだ？</h4>
-      <div>
-        ヒント: 家にあるものです。
+    <% @popular_quizzes.each do |quiz| %>
+      <div class="quiz-box mb-3">
+        <h4><%= quiz.content %></h4>
+        <div>
+          カテゴリー: <%= quiz.category.name %>
+        </div>
+        <div>
+          解答者数: 100人<br>
+          正答率: 94%<br>
+        </div>
       </div>
-      <div>
-        解答者数: 100人<br>
-        正答率: 94%<br>
-      </div>
-    </div>
-    <div class="quiz-box mb-3">
-      <h4 class="font-weight-bold">パンはパンでも食べられないパンってなんだ？</h4>
-      <div>
-        ヒント: 家にあるものです。
-      </div>
-      <div>
-        解答者数: 100人<br>
-        正答率: 94%<br>
-      </div>
-    </div>
-    <div class="quiz-box">
-      <h4 class="font-weight-bold">パンはパンでも食べられないパンってなんだ？</h4>
-      <div>
-        ヒント: 家にあるものです。
-      </div>
-      <div>
-        解答者数: 100人<br>
-        正答率: 94%<br>
-      </div>
-    </div>
+    <% end %>
   </div>
   <div>
     <h3 class="font-weight-bold">新着クイズ</h3>
-    <div class="quiz-box">
-      <h4 class="font-weight-bold">パンはパンでも食べられないパンってなんだ？</h4>
-      <div>
-        ヒント: 家にあるものです。
+    <% @popular_quizzes.each do |quiz| %>
+      <div class="quiz-box mb-3">
+        <h4><%= quiz.content %></h4>
+        <div>
+          カテゴリー: <%= quiz.category.name %>
+        </div>
+        <div>
+          解答者数: 100人<br>
+          正答率: 94%<br>
+        </div>
       </div>
-      <div>
-        解答者数: 100人<br>
-        正答率: 94%<br>
-      </div>
-    </div>
-    <div class="quiz-box mb-3">
-      <h4 class="font-weight-bold">パンはパンでも食べられないパンってなんだ？</h4>
-      <div>
-        ヒント: 家にあるものです。
-      </div>
-      <div>
-        解答者数: 100人<br>
-        正答率: 94%<br>
-      </div>
-    </div>
-    <div class="quiz-box">
-      <h4 class="font-weight-bold">パンはパンでも食べられないパンってなんだ？</h4>
-      <div>
-        ヒント: 家にあるものです。
-      </div>
-      <div>
-        解答者数: 100人<br>
-        正答率: 94%<br>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>

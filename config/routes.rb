@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   authenticate :admin do
     namespace :admin do
-      resources :quizs, only: [:index, :show]
+      resources :quizzes, only: [:index, :show]
       resources :users, only: [:index, :show]
       resources :categories
     end
@@ -24,12 +24,12 @@ Rails.application.routes.draw do
     get '/privary_policy'  => 'static#privary_policy'
     get '/terms'  => 'static#terms'
     resources :contacts, only: [:new]
-    resources :quizs, only: [:index, :show] do
+    resources :quizzes, only: [:index, :show] do
       resources :responses, only: [:index, :show]
     end
     scope module: :categories do
       resources :categories, param: :slug, only: [] do
-        resources :quizs, only: [:index]
+        resources :quizzes, only: [:index]
       end
     end
     resources :users, only: :show
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   authenticate :user do
     namespace :user do
       resource :user_profile, path: :profile, only: [:edit, :update]
-      resources :quizs, except: :show
+      resources :quizzes, except: :show
     end
   end
 end

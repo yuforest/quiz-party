@@ -4,21 +4,33 @@
     <%= f.text_area :content, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :category %>
-    <%= f.collection_select :category,
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id,
                             Category.all,
                             :id,
                             :name,
-                            { selected: @quiz.category.id },
+                            { selected: @quiz.category&.id },
                             { class: 'form-control' }
     %>
   </div>
   <div class="form-group">
-    <%= f.label :image %>
+    <%= f.label :image, "画像(任意)" %>
     <%= f.file_field :image %>
   </div>
+  <% if @quiz.image.present? %>
+    <%= image_tag(@quiz.image.small.url)%>
+  <% end %>
+  <%= f.fields_for :answers do |ff| %>
+    <div id="answer-field">
+      <div class="form-group">
+        <%= ff.label :content %>
+        <%= ff.text_field :content, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+  <a href="#">答えを追加する</a>
   <div class="form-group">
-    <%= f.submit '送信', class: 'btn btn-warning' %>
+    <%= f.submit '送信', class: 'btn btn-primary' %>
   </div>
 <% end %>
 

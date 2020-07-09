@@ -1,7 +1,7 @@
-class User::QuizsController < User::ApplicationController
+class User::QuizzesController < User::ApplicationController
   before_action :set_quiz, only: [:edit, :update, :destroy]
   def index
-    @quizs = Quiz.all
+    @quizzes = Quiz.all
   end
 
   def new
@@ -9,11 +9,12 @@ class User::QuizsController < User::ApplicationController
   end
 
   def create
-    @quiz = current_user.quizs.new(quiz_params)
+    @quiz = current_user.quizzes.new(quiz_params)
     if @quiz.save
       flash[:notice] = '登録しました'
-      redirect_to user_quizs_path
+      redirect_to user_quizzes_path
     else
+      debugger
       flash[:alert] = '登録できませんでした'
       render 'new'
     end
@@ -25,7 +26,7 @@ class User::QuizsController < User::ApplicationController
   def update
     if @quiz.update(quiz_params)
       flash[:notice] = '更新しました'
-      redirect_to user_quizs_path
+      redirect_to user_quizzes_path
     else
       flash[:alert] = '更新できませんでした'
       render 'new'
@@ -34,14 +35,17 @@ class User::QuizsController < User::ApplicationController
 
   def destroy
     @quiz.destroy
-    @post.destroy
+    @quiz.destroy
     flash[:notice] = '削除しました'
     redirect_to user_posts_path
   end
 
   private
   def quiz_params
-    params.require(:quiz).permit(:content, :category_id, :image)
+    params.require(:quiz).permit(
+      :content, :category_id, :image,
+      answer_attributes: [:content]
+    )
   end
 
   def set_quiz

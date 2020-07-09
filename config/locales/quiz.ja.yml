@@ -3,6 +3,6 @@ ja:
     attributes:
       quiz:
         content: クイズ
-        category: カテゴリー
+        category_id: カテゴリー
         image: 画像
         remember_me: 次回から自動的にログイン

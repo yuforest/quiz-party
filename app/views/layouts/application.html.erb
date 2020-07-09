@@ -14,11 +14,14 @@
     <!-- Argon CSS -->
     <link type="text/css" href="/argon/assets/css/argon-design-system.min.css" rel="stylesheet">
     <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body class="index-page sidebar-collapse">
     <%= render "shared/header" %>
     <%= yield %>
     <%= render "shared/footer" %>
+    <%= yield :scripts %>
   </body>
 </html>
