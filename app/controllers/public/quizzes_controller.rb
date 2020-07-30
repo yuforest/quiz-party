@@ -1,5 +1,11 @@
 class Public::QuizzesController < Public::ApplicationController
   def index
-    @quizs = Quiz.all
+    @quizzes = Quiz.all.page(params[:page]).per(10)
+  end
+
+  def show
+    @quiz = Quiz.find(params[:id])
+    impressionist(@quiz, nil, :unique => [:session_hash])
+    @page_views = @quiz.impressionist_count
   end
 end

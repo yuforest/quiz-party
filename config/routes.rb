@@ -19,10 +19,13 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/about'  => 'static#about'
+  get '/privacy_policy'  => 'static#privacy_policy'
+  get '/terms'  => 'static#terms'
+  get '/operator'  => 'static#operator'
+
   scope module: :public do
-    get '/about'  => 'static#about'
-    get '/privary_policy'  => 'static#privary_policy'
-    get '/terms'  => 'static#terms'
+    resource :ogp_images, only: [:show]
     resources :contacts, only: [:new]
     resources :quizzes, only: [:index, :show] do
       resources :responses, only: [:index, :show]

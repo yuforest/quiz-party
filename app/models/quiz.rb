@@ -5,5 +5,6 @@ class Quiz < ApplicationRecord
   has_many :answers, dependent: :destroy
   mount_uploader :image, QuizImagesUploader
   accepts_nested_attributes_for :answers
-  validates :contents, presence: true
+  validates :content, presence: true
+  is_impressionable
 end

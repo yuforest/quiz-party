@@ -1,0 +1,28 @@
+<div class="py-4 row border-bottom border-primary">
+  <%= link_to user_path(quiz.user), class: "col-3 col-md-2 d-flex flex-column align-items-center d-block" do %>
+    <%= image_tag(quiz.user.user_image(size: :thumb), class: "rounded-circle w-100 w-md-75") %>
+    <p class="mt-1"><%= quiz.user.user_name %></p>
+  <% end %>
+  <div class="col-9 col-md-10 d-flex flex-column justify-content-between">
+    <div class="d-flex align-items-center">
+      <h3 class="font-size-lg m-0">
+        <%= link_to quiz_path(quiz) do %>
+          <%= quiz.content %>
+        <% end %>
+        <div>
+          カテゴリー: <%= quiz.category.name %>
+        </div>
+        <div>
+          解答者数: 100人<br>
+          正答率: 94%<br>
+        </div>
+      </h3>
+    </div>
+    <div class="mt-1 pt-1 d-flex justify-content-between">
+      <div>
+        <i class="fas fa-eye mr-1"></i><%= number_with_delimiter(quiz.impressionist_count) %>
+      </div>
+      <%= render "shared/components/sns_buttons", url: quiz_path(quiz), content: quiz.content %>
+    </div>
+  </div>
+</div>

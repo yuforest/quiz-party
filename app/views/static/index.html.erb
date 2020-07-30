@@ -1,20 +1,11 @@
-<div class="container">
-  <div>
-    <h3 class="font-weight-bold">人気クイズ</h3>
+<div class="container mt-4">
+  <section class="my-4">
+    <h2 class="display-4">人気クイズ</h2>
     <% @popular_quizzes.each do |quiz| %>
-      <div class="quiz-box mb-3">
-        <h4><%= quiz.content %></h4>
-        <div>
-          カテゴリー: <%= quiz.category.name %>
-        </div>
-        <div>
-          解答者数: 100人<br>
-          正答率: 94%<br>
-        </div>
-      </div>
+      <%= render "shared/components/quiz_item", quiz: quiz %>
     <% end %>
-  </div>
-  <div>
+  </section>
+ <section class="my-4">
     <h3 class="font-weight-bold">新着クイズ</h3>
     <% @popular_quizzes.each do |quiz| %>
       <div class="quiz-box mb-3">
@@ -28,5 +19,5 @@
         </div>
       </div>
     <% end %>
-  </div>
+  </section>
 </div>
