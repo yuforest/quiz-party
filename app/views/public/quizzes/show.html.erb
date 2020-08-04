@@ -8,12 +8,12 @@
 
 <div class="container mt-4">
   <section class="my-4">
-    <h2 class="display-4">
-      <%#= @quiz.title %>
-    </h2>
     <div class="d-flex align-items-center">
-      <img src="/argon/assets/img/faces/team-4.jpg" class="rounded-circle w-70px">
-      <p class="ml-2 mb-0">サイゼさん</p>
+      <div class="thumb-img-wrapper">
+        <%= image_tag(@quiz.user.user_image(size: :thumb)) %>
+      </div>
+      <p class="ml-2 mb-0"><%= @quiz.user.user_name %></p>
+    <p class="mt-1"></p>
     </div>
     <div class="mt-3">
       <%= @quiz.content %>
@@ -28,14 +28,12 @@
     <div class="mt-3">
       <h4>回答する</h4>
       <div id="comment_box">
-        <%= render "shared/components/answer_box", answer: @new_answer %>
+        <%= render "shared/components/response_box", response: @response, quiz: @quiz %>
       </div>
     </div>
-    <div class="mt-3">
-      <h4>みんなの回答</h4>
-      <div id="comment_list">
-        <%= render "shared/components/answer_list", answers: @answers %>
-      </div>
+    <div id="answer_field"></div>
+    <div class="mt-3" id="responses_link" style="display: none;">
+      <%= link_to "みんなの回答を見る", quiz_responses_path(@quiz), class: 'btn btn-primary' %>
     </div>
   </section>
 </div>

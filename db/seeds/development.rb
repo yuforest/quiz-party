@@ -57,4 +57,20 @@ ActiveRecord::Base.transaction do
     answer = Answer.new(answer)
     answer.save!
   end
+
+  [
+    { id: 1, quiz_id: 1, content: "フライパン", name: '太郎' },
+    { id: 2, quiz_id: 1, content: "パン", name: 'かな' },
+    { id: 3, quiz_id: 2, content: "キャビア", name: '黒龍' },
+    { id: 4, quiz_id: 2, content: "トリュフ", name: 'ハク' },
+    { id: 5, quiz_id: 3, content: "日米和親条約", name: '時間' },
+    { id: 6, quiz_id: 3, content: "日米条約", name: '因果応報' },
+    { id: 7, quiz_id: 4, content: "神道", name: 'microscope' },
+    { id: 8, quiz_id: 4, content: "幸福の化学", name: 'macro' },
+    { id: 9, quiz_id: 5, content: "invoice", name: 'テル' },
+    { id: 10, quiz_id: 5, content: "quotation", name: 'youru' },
+  ].each do |response|
+    record = Response.new(response)
+    record.save!
+  end
 end

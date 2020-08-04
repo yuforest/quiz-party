@@ -7,5 +7,6 @@ class Public::QuizzesController < Public::ApplicationController
     @quiz = Quiz.find(params[:id])
     impressionist(@quiz, nil, :unique => [:session_hash])
     @page_views = @quiz.impressionist_count
+    @response = @quiz.responses.new
   end
 end

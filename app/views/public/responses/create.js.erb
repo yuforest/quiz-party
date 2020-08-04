@@ -1,0 +1,13 @@
+// 正解かどうかと、答えの一覧を表示する
+$("#answer_field").html(
+  "<%= j(render partial: 'shared/components/answer_field',
+                locals: {
+                  answers: @answers,
+                  response: @response,
+                  is_correct: @is_correct
+                })
+  %>"
+);
+
+// みんなの答えを見るボタンを表示
+$("#responses_link").show();

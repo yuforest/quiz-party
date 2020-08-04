@@ -1,0 +1,44 @@
+<div class="container">
+  <section class="my-4">
+    <div class="d-flex justify-content-between mx-2 mb-2">
+      <h2 class="display-4">ユーザー一覧</h2>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-nowrap">ユーザー名</th>
+            <th class="text-nowrap">アイコン画像</th>
+            <th class="text-nowrap">投稿数</th>
+            <th class="text-nowrap">メールアドレス</th>
+            <th class="text-nowrap">作成日時</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td class="text-center">
+                <%= link_to user_path(user), target: :_blank do %>
+                  <%= user.user_name %>
+                <% end %>
+              </td>
+              <td><%= image_tag(user.user_image, size: "100x100") %></td>
+              <td>
+                <%= link_to admin_quizzes_path(user_id: user.id) do %>
+                  <%= user.quizzes.count %>
+                <% end %>
+              </td>
+              <td><%= user.email %></td>
+              <td><%= l user.created_at %></td>
+              <td class="td-actions text-nowrap">
+                <%= link_to "アカウント削除", admin_user_path(user) , class:"btn btn-danger btn-icon btn-sm", method: :delete, data: {confirm: "本当にアカウント削除しますか？"} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @users %>
+    </div>
+  </section>
+</div>

@@ -1,37 +1,43 @@
-<div class="section section-hero section-shaped">
-  <div class="shape shape-style-6 shape-primary">
-    <span class="span-150"></span>
-    <span class="span-50"></span>
-    <span class="span-50"></span>
-    <span class="span-75"></span>
-    <span class="span-100"></span>
-    <span class="span-75"></span>
-    <span class="span-50"></span>
-    <span class="span-100"></span>
-    <span class="span-50"></span>
-    <span class="span-100"></span>
-  </div>
-  <div class="page-header">
-    <div class="container shape-container d-flex align-items-center py-lg">
-      <div class="col px-0">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-6 text-center">
-            <h1 class="text-white display-1">クイズパーティーとは？</h1>
-            <h2 class="display-4 font-weight-normal text-white">簡単にクイズを出題できるプラットフォームです</h2>
-            <div class="btn-wrapper mt-4">
-              <%= link_to new_user_quiz_path, class: 'btn btn-warning btn-icon mt-3 mb-sm-0' do %>
-                <span class="btn-inner--icon"><i class="fas fa-question"></i></span>
-                <span class="btn-inner--text">クイズを出題する</span>
-              <% end %>
-            </div>
+
+<%= render "shared/components/hero_section" %>
+<div class="section features-6">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="info info-horizontal info-hover-primary">
+          <div class="description pl-4">
+            <h5 class="title">クイズを出題する</h5>
+            <p>
+              クイズを作って出題することができます。
+              正答率や回答者数がわかるので他のクイズを作る時の参考にもなります。
+            </p>
+            <%= link_to "クズ男の特徴を投稿する", new_user_quiz_path, class: 'text-info' %>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">他の人のクイズに回答する</h5>
+            <p>
+              他の人が作ったクイズに回答することができます。
+              正答率の低い問題に正解できるでしょうか？
+            </p>
+            <%= link_to "他の人の投稿を見る", quizzes_path, class: 'text-info' %>
+          </div>
+        </div>
+        <div class="info info-horizontal info-hover-primary mt-5">
+          <div class="description pl-4">
+            <h5 class="title">SNSでシェア</h5>
+            <p>
+              作ったクイズや他の人のクイズはTwitterやFaceBookでシェアすることができます。<br>
+              友達にも答えてもらってどれくらいの人が正解できるかを確認してみましょう。
+            </p>
+            <%= link_to "他の人の投稿一覧を見る", quizzes_path, class: 'text-info' %>
           </div>
         </div>
       </div>
+      <div class="col-lg-6 col-10 mx-md-auto">
+        <img class="ml-lg-5" src="/argon/assets/img/ill/ill.png" width="100%">
+      </div>
     </div>
-  </div>
-  <div class="separator separator-bottom separator-skew zindex-100">
-    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-    </svg>
   </div>
 </div>

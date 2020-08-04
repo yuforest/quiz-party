@@ -18,7 +18,11 @@
         <tbody>
           <% @quizzes.each do |quiz| %>
             <tr>
-              <td><%= quiz.content %></td>
+              <td>
+                <%= link_to quiz_path(quiz), target: :_blank, rel: :noopener do %>
+                  <%= quiz.content %>
+                <% end %>
+              </td>
               <td><%= quiz.category.name %></td>
               <td><%= quiz.responses.count %></td>
               <td><%= quiz.created_at.strftime("%Y/%m/%d %H:%M") %></td>

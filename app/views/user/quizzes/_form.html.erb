@@ -20,24 +20,18 @@
   <% if @quiz.image.present? %>
     <%= image_tag(@quiz.image.small.url)%>
   <% end %>
-  <%= f.fields_for :answers do |ff| %>
-    <div id="answer-field">
-      <div class="form-group">
-        <%= ff.label :content %>
-        <%= ff.text_field :content, class: 'form-control' %>
+  <div class="form-group">
+   <%= f.label :answers %>
+   <%= f.fields_for :answers do |answer| %>
+      <div class="field">
+        <%= render 'answer_fields', f: answer %>
       </div>
+    <%- end %>
+    <div class="links">
+      <%= link_to_add_association '答えを追加', f, :answers %>
     </div>
-  <% end %>
-  <a href="#">答えを追加する</a>
+  </div>
   <div class="form-group">
     <%= f.submit '送信', class: 'btn btn-primary' %>
   </div>
-<% end %>
-
-<% content_for :scripts do %>
-  <script>
-    $(document).ready(function() {
-      $('.select2').select2();
-    });
-  </script>
 <% end %>

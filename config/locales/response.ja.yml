@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      response:
+        content: 回答
+        name: 名前

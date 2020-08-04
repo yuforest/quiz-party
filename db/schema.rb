@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2020_07_29_071649) do
 
   create_table "responses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "content"
+    t.string "name"
     t.bigint "quiz_id", null: false
-    t.boolean "is_correct", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["quiz_id"], name: "index_responses_on_quiz_id"

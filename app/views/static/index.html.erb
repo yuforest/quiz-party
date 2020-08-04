@@ -8,16 +8,7 @@
  <section class="my-4">
     <h3 class="font-weight-bold">新着クイズ</h3>
     <% @popular_quizzes.each do |quiz| %>
-      <div class="quiz-box mb-3">
-        <h4><%= quiz.content %></h4>
-        <div>
-          カテゴリー: <%= quiz.category.name %>
-        </div>
-        <div>
-          解答者数: 100人<br>
-          正答率: 94%<br>
-        </div>
-      </div>
+      <%= render "shared/components/quiz_item", quiz: quiz %>
     <% end %>
   </section>
 </div>
