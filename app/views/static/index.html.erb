@@ -11,7 +11,7 @@
   <section class="my-4">
     <h2>人気クイズ</h2>
     <% @popular_quizzes.each do |quiz| %>
-      <%= render "shared/components/quiz_item", quiz: quiz %>
+      <%= render "shared/components/quiz_list_item", quiz: quiz %>
     <% end %>
     <div class="text-center mt-3">
       <%= link_to "もっと見る", quizzes_path, class: "btn btn-primary" %>
@@ -20,7 +20,7 @@
   <section class="my-4">
     <h2 class="font-weight-bold">新着クイズ</h2>
     <% @new_quizzes.each do |quiz| %>
-      <%= render "shared/components/quiz_item", quiz: quiz %>
+      <%= render "shared/components/quiz_list_item", quiz: quiz %>
     <% end %>
     <div class="text-center mt-3">
       <%= link_to "もっと見る", quizzes_path, class: "btn btn-primary" %>

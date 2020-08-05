@@ -2,7 +2,7 @@
   <section class="my-4">
     <h2 class="display-4">クイズ一覧</h2>
     <% @quizzes.each do |quiz| %>
-      <%= render "shared/components/quiz_item", quiz: quiz %>
+      <%= render "shared/components/quiz_list_item", quiz: quiz %>
     <% end %>
     <%= paginate @quizzes %>
   </section>

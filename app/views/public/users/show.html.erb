@@ -9,7 +9,7 @@
     <div class="mt-3 pt-2 border-top border-primary">
       <h3>クイズ一覧</h3>
       <% @quizzes.each do |quiz| %>
-        <%= render "shared/components/quiz_item", quiz: quiz %>
+        <%= render "shared/components/quiz_list_item", quiz: quiz %>
       <% end %>
       <%= paginate @quizzes %>
     </div>
