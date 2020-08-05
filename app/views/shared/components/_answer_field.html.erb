@@ -1,18 +1,18 @@
 <% if is_correct %>
-  <p>正解</p>
+  <p class="font-size-22 font-weight-bold">正解</p>
+  <%= image_tag("circle.png", class: 'd-block') %>
 <% else %>
-  <p>不正解</p>
+  <p class="font-size-22 font-weight-bold">不正解</p>
+  <%= image_tag("times.png", class: 'd-block') %>
 <% end %>
 <div>
-  <h2>あなたの答え</h2>
+  <h3 class="font-size-22 font-weight-bold">あなたの答え</h3>
   <div><%= response.content %></div>
 </div>
 
 <div>
-  <h2>解答</h2>
+  <h3 class="font-size-22 font-weight-bold">解答</h3>
   <div>
-    <% answers.each do |answer| %>
-      <%= answer.content %>
-    <% end %>
+    <%= answers.map(&:content).join("、") %>
   </div>
 </div>

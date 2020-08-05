@@ -1,6 +1,6 @@
 class Public::QuizzesController < Public::ApplicationController
   def index
-    @quizzes = Quiz.all.page(params[:page]).per(10)
+    @quizzes = Quiz.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show

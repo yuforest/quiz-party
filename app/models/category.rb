@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :quiz
+  has_many :quizzes
   def to_param
     return slug
   end

@@ -7,18 +7,23 @@
   <% end %>
   <div class="col-9 col-md-10 d-flex flex-column justify-content-between">
     <div class="d-flex align-items-center">
-      <h3 class="font-size-lg m-0">
-        <%= link_to quiz_path(quiz) do %>
-          <%= quiz.content %>
-        <% end %>
+      <div>
+        <h3 class="font-size-lg m-0">
+          <%= link_to quiz_path(quiz) do %>
+            <%= quiz.content %>
+          <% end %>
+        </h3>
         <div>
-          カテゴリー: <%= quiz.category.name %>
+          カテゴリー:
+          <%= link_to category_quizzes_path(quiz.category) do %>
+            <%= quiz.category.name %>
+          <% end %>
         </div>
         <div>
-          解答者数: 100人<br>
-          正答率: 94%<br>
+          解答者数: <%= quiz.responses.count %><br>
+          正答率: <%= quiz.correct_answer_rate %>%<br>
         </div>
-      </h3>
+      </div>
     </div>
     <div class="mt-1 pt-1 d-flex justify-content-between">
       <div>

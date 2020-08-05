@@ -14,6 +14,16 @@ class Quiz < ApplicationRecord
     where(user_id: user_id)
   }
 
+  def correct_answer_rate
+    corerct_count = 0
+    responses.each do |response|
+      answers.each do |answer|
+        next if response.content != answer.content
+        corerct_count += 1
+      end
+    end
+    (corerct_count * 100 / responses.count.to_f).round(1)
+  end
   # scope :search_by_category, -> (category_id) {
   #   return if category_id.nil?
   #   where(category_id: category_id)

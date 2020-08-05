@@ -1,14 +1,20 @@
 <div class="container mt-4">
   <section class="my-4">
-    <h2 class="display-4">人気クイズ</h2>
+    <h2>人気クイズ</h2>
     <% @popular_quizzes.each do |quiz| %>
       <%= render "shared/components/quiz_item", quiz: quiz %>
     <% end %>
+    <div class="text-center mt-3">
+      <%= link_to "もっと見る", quizzes_path, class: "btn btn-primary" %>
+    </div>
   </section>
- <section class="my-4">
-    <h3 class="font-weight-bold">新着クイズ</h3>
-    <% @popular_quizzes.each do |quiz| %>
+  <section class="my-4">
+    <h2 class="font-weight-bold">新着クイズ</h2>
+    <% @new_quizzes.each do |quiz| %>
       <%= render "shared/components/quiz_item", quiz: quiz %>
     <% end %>
+    <div class="text-center mt-3">
+      <%= link_to "もっと見る", quizzes_path, class: "btn btn-primary" %>
+    </div>
   </section>
 </div>

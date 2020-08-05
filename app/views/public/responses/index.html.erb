@@ -26,7 +26,11 @@
       <%= render "shared/components/sns_buttons", url: quiz_path(@quiz), content: @quiz.user.user_name + "さんのクイズ" %>
     </div>
     <div class="mt-3">
-      <h4>みんなの回答</h4>
+      <h3>みんなの回答</h3>
+      <div class="d-flex">
+        <p class="mr-3">回答者数: <%= Response.where(quiz_id: @quiz.id).count %></p>
+        <p>正答率 <%= @quiz.correct_answer_rate %>%</p>
+      </div>
       <div id="comment_list">
         <%= render "shared/components/response_list", responses: @responses %>
       </div>

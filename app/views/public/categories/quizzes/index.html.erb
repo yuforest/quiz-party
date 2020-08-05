@@ -1,0 +1,10 @@
+<div class="container mt-4">
+  <section class="my-4">
+    <h2><%= @category.name%>のクイズ一覧</h2>
+    <%= link_to "全ジャンルに戻る", quizzes_path, class: 'btn btn-primary' %>
+    <% @quizzes.each do |quiz| %>
+      <%= render "shared/components/quiz_item", quiz: quiz %>
+    <% end %>
+    <%= paginate @quizzes %>
+  </section>
+</div>

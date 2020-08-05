@@ -1,7 +1,9 @@
 class Public::ResponsesController < Public::ApplicationController
   def index
     @quiz = Quiz.find(params[:quiz_id])
-    @responses = @quiz.responses.page(params[:page]).per(10)
+    @responses = @quiz.responses
+                      .includes(quiz: [:answers])
+                      .page(params[:page]).per(20)
     @page_views = @quiz.impressionist_count
   end
 
@@ -12,14 +14,12 @@ class Public::ResponsesController < Public::ApplicationController
     @is_correct = is_correct
     if @response.save
       render 'create.js.erb'
-    else
-      render 'public/quizzes/show'
     end
   end
 
   private
   def response_params
-    params.require(:response).permit(:quiz_id, :content)
+    params.require(:response).permit(:quiz_id, :content, :name)
   end
 
   def is_correct

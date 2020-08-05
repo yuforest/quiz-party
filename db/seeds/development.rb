@@ -7,16 +7,44 @@ ActiveRecord::Base.transaction do
   end
 
   [
-    { email: "test@gmail.com", password: "password", password_confirmation: "password" },
-    { email: "test1@gmail.com", password: "password", password_confirmation: "password" },
-    { email: "test2@gmail.com", password: "password", password_confirmation: "password" },
-    { email: "test3@gmail.com", password: "password", password_confirmation: "password" },
-    { email: "test4@gmail.com", password: "password", password_confirmation: "password" },
-    { email: "test5@gmail.com", password: "password", password_confirmation: "password" },
+    {
+      email: "test@gmail.com",
+      password: "password",
+      password_confirmation: "password",
+       profile: {name: "小学生", image: Rails.root.to_s + "/public/seeds/imgs/users/user1.jpg"}
+    },
+    {
+      email: "test1@gmail.com",
+      password: "password",
+      password_confirmation: "password",
+      profile: {name: "あめ", image: Rails.root.to_s + "/public/seeds/imgs/users/user2.jpg"}
+    },
+    {
+      email: "test2@gmail.com",
+      password: "password",
+      password_confirmation: "password",
+      profile: {name: "田中", image: Rails.root.to_s + "/public/seeds/imgs/users/user3.jpg"}
+    },
+    {
+      email: "test3@gmail.com",
+      password: "password",
+      password_confirmation: "password",
+      profile: {name: "Kuizer", image: Rails.root.to_s + "/public/seeds/imgs/users/user4.jpg"}
+    },
+    {
+      email: "test4@gmail.com",
+      password: "password",
+      password_confirmation: "password",
+      profile: {name: "Quiz King", image: Rails.root.to_s + "/public/seeds/imgs/users/user5.jpg"}
+    }
   ].each do |u|
-    user = User.new(u)
+    user = User.new(u.except(:profile))
     user.skip_confirmation!
     user.save!
+    profile = user.user_profile
+    profile.name = u[:profile][:name]
+    profile.image = File.open(u[:profile][:image])
+    profile.save!
   end
   [
     { id: 1, name: "その他", slug: 'other' },
@@ -39,9 +67,9 @@ ActiveRecord::Base.transaction do
   [
     { id: 1, user_id: 1, category_id: 2, content: 'パンはパンでも食べられないパンはなんだ？' },
     { id: 2, user_id: 1, category_id: 7, content: '世界三大珍味といえば、トリュフ、フォアグラ、後もう一つは？' },
-    { id: 3, user_id: 1, category_id: 8, content: '1953年にペリー率いるアメリカ合衆国海軍の船が浦賀に来航した翌年に日米間で締結された条約の名前は？' },
-    { id: 4, user_id: 1, category_id: 1, content: '文化庁の統計調査において日本で一番信者数が多い宗教は何系統？' },
-    { id: 5, user_id: 1, category_id: 3, content: '請求書は英語でなんという？' },
+    { id: 3, user_id: 2, category_id: 8, content: '1953年にペリー率いるアメリカ合衆国海軍の船が浦賀に来航した翌年に日米間で締結された条約の名前は？' },
+    { id: 4, user_id: 2, category_id: 1, content: '文化庁の統計調査において日本で一番信者数が多い宗教は何系統？' },
+    { id: 5, user_id: 3, category_id: 3, content: '請求書は英語でなんという？' },
   ].each do |quiz|
     quiz = Quiz.new(quiz)
     quiz.save!
