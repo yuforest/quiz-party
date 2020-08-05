@@ -1,7 +1,9 @@
 class User::QuizzesController < User::ApplicationController
   before_action :set_quiz, only: [:edit, :update, :destroy]
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.includes([:responses, :answers])
+                   .add_responses_count
+                   .page(params[:page]).per(10)
   end
 
   def new

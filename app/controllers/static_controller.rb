@@ -1,11 +1,11 @@
 class StaticController < ApplicationController
   def index
     @popular_quizzes = Quiz.includes([:responses, :answers])
-                           .left_joins(:responses)
-                           .group("responses.quiz_id")
+                           .add_responses_count
                            .order("count(responses.id) desc")
                            .limit(5)
     @new_quizzes     = Quiz.includes([:responses, :answers])
+                           .add_responses_count
                            .order(created_at: :desc)
                            .limit(5)
   end

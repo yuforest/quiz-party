@@ -14,6 +14,12 @@ class Quiz < ApplicationRecord
     where(user_id: user_id)
   }
 
+  scope :add_responses_count, -> {
+    left_joins(:responses)
+      .select("quizzes.*,COUNT(responses.id) AS responses_count")
+      .group("quizzes.id")
+  }
+
   def correct_answer_rate
     corerct_count = 0
     responses.each do |response|
@@ -24,8 +30,4 @@ class Quiz < ApplicationRecord
     end
     (corerct_count * 100 / responses.count.to_f).round(1)
   end
-  # scope :search_by_category, -> (category_id) {
-  #   return if category_id.nil?
-  #   where(category_id: category_id)
-  # }
 end
