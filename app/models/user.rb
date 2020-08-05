@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable, :omniauthable, omniauth_providers: [:twitter]
   has_many :quizzes,     dependent: :destroy
   has_one :user_profile, dependent: :destroy
+  has_many :socials, dependent: :destroy
   after_create :init_profile
 
   def init_profile

@@ -17,5 +17,5 @@
     <i class="fas fa-eye mr-1"></i>
     <%= number_with_delimiter(page_views) %>
   </div>
-  <%= render "shared/components/sns_buttons", url: quiz_path(quiz), content: quiz.user.user_name + "さんのクイズ" %>
+  <%= render "shared/components/sns_buttons", url: quiz_url(quiz), content: quiz.user.user_name + "さんのクイズ" %>
 </div>
