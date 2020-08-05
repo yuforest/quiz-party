@@ -1,6 +1,6 @@
 ActiveRecord::Base.transaction do
   [
-    { email: "test@gmail.com", password: "JIjUG1tTCTfPd3VL", password_confirmation: "password" },
+    { email: "test@gmail.com", password: "JIjUG1tTCTfPd3VL", password_confirmation: "JIjUG1tTCTfPd3VL" },
   ].each do |item|
     admin = Admin.new(item)
     admin.save!
@@ -9,31 +9,31 @@ ActiveRecord::Base.transaction do
   [
     {
       email: "test@gmail.com",
-      password: "password",
+      password: "ntsXwic6EFuG7CHH",
       password_confirmation: "ntsXwic6EFuG7CHH",
        profile: {name: "小学生", image: Rails.root.to_s + "/public/seeds/imgs/users/user1.jpg"}
     },
     {
       email: "test1@gmail.com",
-      password: "password",
+      password: "Ha7mRDYivClyjca6",
       password_confirmation: "Ha7mRDYivClyjca6",
       profile: {name: "あめ", image: Rails.root.to_s + "/public/seeds/imgs/users/user2.jpg"}
     },
     {
       email: "test2@gmail.com",
-      password: "password",
+      password: "aBgQWm4jyUlW2KPu",
       password_confirmation: "aBgQWm4jyUlW2KPu",
       profile: {name: "田中", image: Rails.root.to_s + "/public/seeds/imgs/users/user3.jpg"}
     },
     {
       email: "test3@gmail.com",
-      password: "password",
+      password: "aZgW5gJQf0jny58n",
       password_confirmation: "aZgW5gJQf0jny58n",
       profile: {name: "Kuizer", image: Rails.root.to_s + "/public/seeds/imgs/users/user4.jpg"}
     },
     {
       email: "test4@gmail.com",
-      password: "password",
+      password: "msrbW1HhZ44UYcsf",
       password_confirmation: "msrbW1HhZ44UYcsf",
       profile: {name: "Quiz King", image: Rails.root.to_s + "/public/seeds/imgs/users/user5.jpg"}
     }
