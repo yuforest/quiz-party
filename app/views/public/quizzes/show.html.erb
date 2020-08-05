@@ -1,7 +1,8 @@
-<% set_meta_tags title: @quiz.user.user_name + "さんのクイズ | クイズパーティー",
+<% set_meta_tags title: @quiz.user.user_name + "さんのクイズ",
                  description: @quiz.content,
                  og: {
                    title: @quiz.user.user_name + "さんのクイズ | クイズパーティー",
+                   description: @quiz.content,
                    image: ogp_images_url(text: @quiz.content)
                  }
 %>

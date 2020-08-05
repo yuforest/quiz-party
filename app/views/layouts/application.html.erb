@@ -4,6 +4,18 @@
     <title>QuizParty</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <% set_meta_tags og: {
+                       type: 'article',
+                       url: request.url
+                     },
+                     twitter: {
+                       card: "summary_large_image",
+                     },
+                     fb: {
+                       app_id: "621898788712649"
+                     }
+    %>
+    <%= display_meta_tags site: 'クイズパーティー' %>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
 

@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resource :ogp_images, only: [:show]
-    resources :contacts, only: [:new]
     resources :quizzes, only: [:index, :show] do
       resources :responses, only: [:index, :create]
     end
