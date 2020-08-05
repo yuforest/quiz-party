@@ -29,6 +29,7 @@ gem 'impressionist'
 gem 'meta-tags'
 gem 'cocoon'
 gem 'dotenv-rails'
+gem 'fog'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
