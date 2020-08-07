@@ -52,6 +52,8 @@ Rails.application.configure do
   config.log_level = :error
   config.logger = Logger.new("log/production.log", 'weekly')
 
+   config.action_mailer.default_url_options = { host: 'quiz-party.forest-services.net' }
+
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
