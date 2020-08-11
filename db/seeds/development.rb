@@ -70,6 +70,15 @@ ActiveRecord::Base.transaction do
     { id: 3, user_id: 2, category_id: 8, content: '1953年にペリー率いるアメリカ合衆国海軍の船が浦賀に来航した翌年に日米間で締結された条約の名前は？' },
     { id: 4, user_id: 2, category_id: 1, content: '文化庁の統計調査において日本で一番信者数が多い宗教は何系統？' },
     { id: 5, user_id: 3, category_id: 3, content: '請求書は英語でなんという？' },
+    { id: 6, user_id: 3, category_id: 13, content: 'ドル円が105円から106円に上昇した時は円安？それとも円高？' },
+    { id: 7, user_id: 1, category_id: 11, content: 'YOASOBIの夜に駆けるにおいて、その一言で全てがわかったの歌詞の前の「〇〇」だけだったの〇〇に入る文字は？(ひらがな4文字)' },
+    { id: 8, user_id: 2, category_id: 4, content: 'sin30°は1/○ですが○の中に入る数字は？' },
+    { id: 9, user_id: 3, category_id: 5, content: '南アジアで主に行われるチームスポーツであり、競技中に攻撃者が競技名を発声し続けなければならないというルールがある競技の名前は？' },
+    { id: 10, user_id: 1, category_id: 6, content: '一般的にキングオブポップと称されるアメリカ出身の歌手は？(〇〇・〇〇の形で回答)' },
+    { id: 11, user_id: 2, category_id: 9, content: '1888年8月から1890年1月にかけて花瓶に活けられた向日葵をモチーフとする複数の絵画を書いたオランダの画家は？(カタカナ3文字)' },
+    { id: 12, user_id: 3, category_id: 10, content: '世界で一番小さい国は？(カタカナ4文字)' },
+    { id: 13, user_id: 1, category_id: 12, content: '漫画「ドラゴンボール」における亀仙人の初登場時の年齢は？(半角数字で入力)' },
+
   ].each do |quiz|
     quiz = Quiz.new(quiz)
     quiz.save!
@@ -81,6 +90,14 @@ ActiveRecord::Base.transaction do
     { id: 3, quiz_id: 3, content: "日米和親条約" },
     { id: 4, quiz_id: 4, content: "神道" },
     { id: 5, quiz_id: 5, content: "invoice" },
+    { id: 6, quiz_id: 6, content: "円安" },
+    { id: 7, quiz_id: 7, content: "さよなら" },
+    { id: 8, quiz_id: 8, content: "2" },
+    { id: 9, quiz_id: 9, content: "カバディ" },
+    { id: 10, quiz_id: 10, content: "マイケル・ジャクソン" },
+    { id: 11, quiz_id: 11, content: "ゴッホ" },
+    { id: 12, quiz_id: 12, content: "バチカン" },
+    { id: 13, quiz_id: 13, content: "319" },
   ].each do |answer|
     answer = Answer.new(answer)
     answer.save!
@@ -97,6 +114,22 @@ ActiveRecord::Base.transaction do
     { id: 8, quiz_id: 4, content: "幸福の化学", name: 'macro' },
     { id: 9, quiz_id: 5, content: "invoice", name: 'テル' },
     { id: 10, quiz_id: 5, content: "quotation", name: 'youru' },
+    { id: 11, quiz_id: 6, content: "円高", name: 'hello' },
+    { id: 12, quiz_id: 6, content: "円安", name: 'world' },
+    { id: 13, quiz_id: 7, content: "goodbye", name: 'タマ' },
+    { id: 14, quiz_id: 7, content: "さよなら", name: 'ドラゴン' },
+    { id: 15, quiz_id: 8, content: "100", name: '桜' },
+    { id: 16, quiz_id: 8, content: "2", name: 'pc' },
+    { id: 17, quiz_id: 9, content: "サッカー", name: 'ana' },
+    { id: 18, quiz_id: 9, content: "カバディ", name: 'sound' },
+    { id: 19, quiz_id: 10, content: "嵐", name: 'sound' },
+    { id: 20, quiz_id: 10, content: "マイケル・ジャクソン", name: 'sound' },
+    { id: 21, quiz_id: 11, content: "ムンク", name: '画家' },
+    { id: 22, quiz_id: 11, content: "ゴッホ", name: 'painter' },
+    { id: 23, quiz_id: 12, content: "バチカン", name: 'painter' },
+    { id: 24, quiz_id: 12, content: "ロシア", name: 'painter' },
+    { id: 25, quiz_id: 13, content: "100", name: 'painter' },
+    { id: 26, quiz_id: 13, content: "319", name: 'painter' },
   ].each do |response|
     record = Response.new(response)
     record.save!
